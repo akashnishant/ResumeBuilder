@@ -35,6 +35,7 @@ const ResumeEditor = (props) => {
     certifications: details?.certifications || [],
     languages: details?.languages || [],
     skills: details?.skills || [],
+    additionalInfo: details?.additionalInfo || "",
   });
 
   const [editingSection, setEditingSection] = useState(null);
@@ -104,6 +105,10 @@ const ResumeEditor = (props) => {
     } else if (section === "languages" && details !== undefined) {
       delete details.languages;
       details.languages = tempData;
+      localStorage.setItem("tempResumeData", JSON.stringify(details));
+    } else if (section === "additionalInfo" && details !== undefined) {
+      delete details.additionalInfo;
+      details.additionalInfo = tempData;
       localStorage.setItem("tempResumeData", JSON.stringify(details));
     }
 
@@ -1088,6 +1093,259 @@ const ResumeEditor = (props) => {
                 </span> : ""
               ))}
             </div>
+          )}
+        </section>
+
+        {/* Aditional Info Section */}
+        <section className="resume-section">
+          <div className="section-header">
+            <h2>Additional Information</h2>
+            {!props.isPreview && (
+              <button
+                className="edit-btn"
+                onClick={() => handleEdit("additionalInfo")}
+              >
+                Edit
+              </button>
+            )}
+          </div>
+
+          {editingSection === "additionalInfo" ? (
+            <div className="edit-form">
+              <FroalaEditorComponent
+                tag="textarea"
+                model={tempData || ""}
+                onModelChange={(content) =>
+                  setTempData(content)
+                }
+                config={{
+                  placeholderText: "Add additional info (if any)...",
+
+                  // Enhanced toolbar with more options
+                  toolbarButtons: {
+                    moreText: {
+                      buttons: [
+                        "bold",
+                        "italic",
+                        "underline",
+                        "strikeThrough",
+                        "subscript",
+                        "superscript",
+                        "fontFamily",
+                        "fontSize",
+                        "textColor",
+                        "backgroundColor",
+                        "inlineClass",
+                        "inlineStyle",
+                        "clearFormatting",
+                      ],
+                    },
+                    moreParagraph: {
+                      buttons: [
+                        "alignLeft",
+                        "alignCenter",
+                        "alignRight",
+                        "alignJustify",
+                        "formatOL",
+                        "formatUL",
+                        "paragraphFormat",
+                        "paragraphStyle",
+                        "lineHeight",
+                        "outdent",
+                        "indent",
+                        "quote",
+                      ],
+                    },
+                    moreRich: {
+                      buttons: [
+                        "insertLink",
+                        "insertTable",
+                        "emoticons",
+                        "fontAwesome",
+                        "specialCharacters",
+                        "embedly",
+                        "insertFile",
+                        "insertHR",
+                      ],
+                    },
+                    moreMisc: {
+                      buttons: [
+                        "undo",
+                        "redo",
+                        "fullscreen",
+                        "print",
+                        "getPDF",
+                        "spellChecker",
+                        "selectAll",
+                        "html",
+                        "help",
+                      ],
+                    },
+                  },
+
+                  // Alternative: Simple toolbar with commonly used options
+                  // toolbarButtons: ['bold', 'italic', 'underline', 'strikeThrough', '|', 'fontFamily', 'fontSize', 'color', '|', 'alignLeft', 'alignCenter', 'alignRight', 'alignJustify', '|', 'formatUL', 'formatOL', 'outdent', 'indent', '|', 'insertLink', 'insertTable', '|', 'undo', 'redo', 'clearFormatting'],
+
+                  // Font options
+                  fontFamily: {
+                    "Arial,Helvetica,sans-serif": "Arial",
+                    "Georgia,serif": "Georgia",
+                    "Impact,Charcoal,sans-serif": "Impact",
+                    "Tahoma,Geneva,sans-serif": "Tahoma",
+                    "Times New Roman,Times,serif": "Times New Roman",
+                    "Verdana,Geneva,sans-serif": "Verdana",
+                  },
+
+                  fontSize: [
+                    "8",
+                    "9",
+                    "10",
+                    "11",
+                    "12",
+                    "14",
+                    "16",
+                    "18",
+                    "24",
+                    "30",
+                    "36",
+                    "48",
+                    "60",
+                    "72",
+                    "96",
+                  ],
+
+                  // Paragraph formats
+                  paragraphFormat: {
+                    N: "Normal",
+                    H1: "Heading 1",
+                    H2: "Heading 2",
+                    H3: "Heading 3",
+                    H4: "Heading 4",
+                    PRE: "Code",
+                  },
+
+                  // Colors
+                  colorsDefaultTab: "background",
+                  colorsText: [
+                    "#61BD6D",
+                    "#1ABC9C",
+                    "#54ACD2",
+                    "#2C82C9",
+                    "#9365B8",
+                    "#475577",
+                    "#CCCCCC",
+                    "#41A85F",
+                    "#00A885",
+                    "#3D8EB9",
+                    "#2969B0",
+                    "#553982",
+                    "#28324E",
+                    "#000000",
+                    "#F7DA64",
+                    "#FBA026",
+                    "#EB6B56",
+                    "#E25041",
+                    "#A38F84",
+                    "#EFEFEF",
+                    "#FFFFFF",
+                    "#FAC51C",
+                    "#F37934",
+                    "#D14841",
+                    "#B8312F",
+                    "#7C706B",
+                    "#D1D5D8",
+                    "REMOVE",
+                  ],
+                  colorsBackground: [
+                    "#61BD6D",
+                    "#1ABC9C",
+                    "#54ACD2",
+                    "#2C82C9",
+                    "#9365B8",
+                    "#475577",
+                    "#CCCCCC",
+                    "#41A85F",
+                    "#00A885",
+                    "#3D8EB9",
+                    "#2969B0",
+                    "#553982",
+                    "#28324E",
+                    "#000000",
+                    "#F7DA64",
+                    "#FBA026",
+                    "#EB6B56",
+                    "#E25041",
+                    "#A38F84",
+                    "#EFEFEF",
+                    "#FFFFFF",
+                    "#FAC51C",
+                    "#F37934",
+                    "#D14841",
+                    "#B8312F",
+                    "#7C706B",
+                    "#D1D5D8",
+                    "REMOVE",
+                  ],
+
+                  // Table options
+                  tableStyles: {
+                    "fr-table-blue": "Blue",
+                    "fr-table-red": "Red",
+                    "fr-table-dark": "Dark",
+                  },
+
+                  // List options
+                  listAdvancedTypes: true,
+
+                  // Size and behavior
+                  heightMin: 150,
+                  heightMax: 400,
+                  charCounterCount: true,
+                  charCounterMax: 5000,
+
+                  // Quick insert
+                  quickInsertButtons: ["image", "table", "ul", "ol", "hr"],
+
+                  // Other useful options
+                  linkAlwaysBlank: true,
+                  linkAutoPrefix: "https://",
+                  tabSpaces: 4,
+                  shortcutsEnabled: [
+                    "show",
+                    "bold",
+                    "italic",
+                    "underline",
+                    "strikeThrough",
+                    "indent",
+                    "outdent",
+                  ],
+
+                  // Remove attribution (for paid version)
+                  attribution: false,
+
+                  // Add your license key here (for paid version)
+                  // key: 'YOUR_LICENSE_KEY'
+                }}
+              />
+              <div className="form-actions">
+                <button
+                  className="save-btn"
+                  onClick={() => handleSave("additionalInfo")}
+                >
+                  Save
+                </button>
+                <button className="cancel-btn" onClick={handleCancel}>
+                  Cancel
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div
+              className="ql-editor"
+              dangerouslySetInnerHTML={{
+                __html: resumeData?.additionalInfo,
+              }}
+            />
           )}
         </section>
       </div>

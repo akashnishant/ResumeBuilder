@@ -33,6 +33,7 @@ const BasicPreviewPage = (props) => {
     certifications: details?.certifications,
     languages: details?.languages,
     skills: details?.skills,
+    additionalInfo: details?.additionalInfo,
   });
 
   return (
@@ -238,6 +239,20 @@ const BasicPreviewPage = (props) => {
               </span>
             ))}
           </div>
+        </section> : ""}
+
+        {/* Additional Info Section */}
+        {resumeData?.additionalInfo?.length ? <section className="resume-section">
+          <div className="section-header">
+            <h2>Additional Information</h2>
+          </div>
+
+          <div
+            className="ql-editor"
+            dangerouslySetInnerHTML={{
+              __html: resumeData?.additionalInfo,
+            }}
+          />
         </section> : ""}
       </div>
     </div>
