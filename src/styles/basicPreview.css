@@ -2,8 +2,10 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
+  padding: 20px;
 }
 .preview-container {
+  padding: 20px;
   p {
     font-size: 14px;
     color: black;
@@ -43,6 +45,9 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     margin-bottom: 10px;
     .summary-details {
+      margin-bottom: 10px;
+    }
+    .ql-editor {
       margin-bottom: 10px;
     }
   }
