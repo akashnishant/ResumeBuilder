@@ -524,15 +524,15 @@ body {
 
 .download-btn,
 .template-btn {
-  flex: 1;
+  /* flex: 1; */
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
   font-weight: 500;
   cursor: pointer;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   gap: 0.25rem;
   transition: all 0.3s;
 }

@@ -37,225 +37,185 @@ const BasicPreviewPage = (props) => {
   });
 
   return (
-    <div className="resume-container basic-preview-page">
-      <BackButton onClick={() => navigate(-1)} />
-      {/* Download Button - Top Right */}
-      <DownloadPDF />
-      <div id="resume" className="resume-content">
-        {/* Personal Information Section */}
-        <section className="resume-section personal-info">
-          <div className="personal-info-section-header">
-            <h1 className="name">{resumeData?.personalInfo?.name}</h1>
-          </div>
-
-          <div className="contact-info">
-            <p>{resumeData?.personalInfo?.email}</p>
-            <p>{resumeData?.personalInfo?.phone}</p>
-            <p>{resumeData?.personalInfo?.address}</p>
-            <p>{resumeData?.personalInfo?.linkedin}</p>
-            <p>{resumeData?.personalInfo?.website}</p>
-          </div>
-        </section>
-
-        {/* Professional Summary Section */}
-        {resumeData?.professionalSummary?.length ? <section className="resume-section">
-          <div className="section-header">
-            <h2>Professional Summary</h2>
-          </div>
-
-          <div
-            className="ql-editor"
-            dangerouslySetInnerHTML={{
-              __html: resumeData?.professionalSummary,
-            }}
-          />
-        </section> : ""}
-
-        {/* Work Experience Section */}
-        {resumeData?.workExperience?.length ? <section className="resume-section">
-          <div className="section-header">
-            <h2>Work Experience</h2>
-          </div>
-
-          <div className="experience-list">
-            {resumeData?.workExperience?.map((exp) => (
-              <div key={exp.id} className="experience-item">
-                <div className="experience-header">
-                  <h3>{exp.position}</h3>
-                  <span className="duration">{exp.duration}</span>
-                </div>
-                <h4>{exp.company}</h4>
-                <div
-                  className="ql-editor"
-                  dangerouslySetInnerHTML={{
-                    __html: exp.description,
-                  }}
-                />
-              </div>
-            ))}
-          </div>
-        </section> : ""}
-
-        {/* Education Section */}
-        {resumeData?.education?.length ? <section className="resume-section">
-          <div className="section-header">
-            <h2>Education</h2>
-          </div>
-
-          <div className="education-list">
-            {resumeData?.education?.map((edu) => (
-              <div key={edu.id} className="education-item">
-                <div className="education-header">
-                  <h3>{edu.degree}</h3>
-                  <span className="year">{edu.year}</span>
-                </div>
-                <h4>{edu.institution}</h4>
-                <p>{edu.field}</p>
-                <p>GPA: {edu.gpa}</p>
-              </div>
-            ))}
-          </div>
-        </section> : ""}
-
-        {/* Skills Section */}
-        {resumeData?.skills?.length && resumeData?.skills[0]?.length ? <section className="resume-section">
-          <div className="section-header">
-            <h2>Skills</h2>
-          </div>
-
-          <div className="skills-list">
-            {resumeData?.skills?.map((skill, index) => (
-              skill !== "" ? <span key={index} className="skill-tag">
-                {skill}
-              </span>
-              : ""
-            ))}
-          </div>
-        </section> : ""}
-
-        {/* Certifications Section */}
-        {resumeData?.certifications?.length && resumeData?.certifications[0]?.length ? <section className="resume-section">
-          <div className="section-header">
-            <h2>Certifications</h2>
-          </div>
-
-          <div className="skills-list">
-            {resumeData?.certifications?.map((certifications, index) => (
-              <span key={index} className="skill-tag">
-                {certifications}
-              </span>
-            ))}
-          </div>
-        </section> : ""}
-
-        {/* Certifications Section */}
-        {/* <section className="resume-section">
-          <div className="section-header">
-            <h2>Certifications</h2>
-            {!props.isPreview && <button 
-              className="edit-btn"
-              onClick={() => handleEdit('certifications')}
-            >
-              Edit
-            </button>}
-          </div>
-          
-          {editingSection === 'certifications' ? (
-            <div className="edit-form">
-              {tempData.map((cert, index) => (
-                <div key={cert.id} className="certification-item-edit">
-                  <div className="form-group">
-                    <label>Certification Name:</label>
-                    <input
-                      type="text"
-                      value={cert.name}
-                      onChange={(e) => updateArrayItem(index, 'name', e.target.value)}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Issuer:</label>
-                    <input
-                      type="text"
-                      value={cert.issuer}
-                      onChange={(e) => updateArrayItem(index, 'issuer', e.target.value)}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Year:</label>
-                    <input
-                      type="text"
-                      value={cert.year}
-                      onChange={(e) => updateArrayItem(index, 'year', e.target.value)}
-                    />
-                  </div>
-                  <button 
-                    className="remove-btn-template"
-                    onClick={() => removeArrayItem(cert.id)}
-                  >
-                    Remove
-                  </button>
-                </div>
-              ))}
-              <button 
-                className="add-btn"
-                onClick={() => addArrayItem({
-                  name: 'Certification Name',
-                  issuer: 'Issuing Organization',
-                  year: 'Year'
-                })}
-              >
-                Add Certification
-              </button>
-              <div className="form-actions">
-                <button className="save-btn" onClick={() => handleSave('certifications')}>Save</button>
-                <button className="cancel-btn" onClick={handleCancel}>Cancel</button>
-              </div>
-            </div>
-          ) : (
-            <div className="certifications-list">
-              {resumeData?.certifications?.map(cert => (
-                <div key={cert.id} className="certification-item">
-                  <div className="certification-header">
-                    <h3>{cert.name}</h3>
-                    <span className="year">{cert.year}</span>
-                  </div>
-                  <h4>{cert.issuer}</h4>
-                </div>
-              ))}
-            </div>
-          )}
-        </section> */}
-
-        {/* Languages Section */}
-        {resumeData?.languages?.length && resumeData?.languages[0]?.length ? <section className="resume-section">
-          <div className="section-header">
-            <h2>Languages</h2>
-          </div>
-
-          <div className="skills-list">
-            {resumeData?.languages?.map((skill, index) => (
-              <span key={index} className="skill-tag">
-                {skill}
-              </span>
-            ))}
-          </div>
-        </section> : ""}
-
-        {/* Additional Info Section */}
-        {resumeData?.additionalInfo?.length ? <section className="resume-section">
-          <div className="section-header">
-            <h2>Additional Information</h2>
-          </div>
-
-          <div
-            className="ql-editor"
-            dangerouslySetInnerHTML={{
-              __html: resumeData?.additionalInfo,
-            }}
-          />
-        </section> : ""}
+    <>
+      <div className="preview-page-buttons">
+        <BackButton onClick={() => navigate(-1)} />
+        {/* Download Button - Top Right */}
+        <DownloadPDF />
       </div>
-    </div>
+      <div id="resume" className="preview-container">
+        <div className="personal-summary">
+          <p>
+            <b>{resumeData?.personalInfo?.name}</b>
+          </p>
+          <p>{resumeData?.personalInfo?.email}</p>
+          <p>{resumeData?.personalInfo?.phone}</p>
+          <p>{resumeData?.personalInfo?.address}</p>
+          <p>{resumeData?.personalInfo?.linkedin}</p>
+          <p>{resumeData?.personalInfo?.website}</p>
+        </div>
+        {resumeData?.professionalSummary?.length ? (
+          <div className="professional-summary">
+            <p className="summary-header">
+              <b>PROFESSIONAL SUMMARY</b>
+            </p>
+            <div
+              className="ql-editor"
+              dangerouslySetInnerHTML={{
+                __html: resumeData?.professionalSummary,
+              }}
+            />
+          </div>
+        ) : (
+          ""
+        )}
+        {resumeData?.workExperience?.length ? (
+          <div className="work-summary">
+            <p className="summary-header">
+              <b>WORK EXPERIENCE</b>
+            </p>
+            <div>
+              {resumeData?.workExperience?.map((exp, index) => (
+                <div key={exp.id} className="summary-details">
+                  <p>
+                    <b>
+                      {index + 1}. {exp.position}
+                    </b>
+                  </p>
+                  <p className="gray">{exp.duration}</p>
+                  <p className="mb-2">{exp.company}</p>
+                  <div
+                    className="ql-editor"
+                    dangerouslySetInnerHTML={{
+                      __html: exp.description,
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+        {resumeData?.education?.length ? (
+          <div className="educational-summary">
+            <p className="summary-header">
+              <b>EDUCATION</b>
+            </p>
+            <div>
+              {resumeData?.education?.map((edu) => (
+                <div>
+                  <div key={edu.id} className="summary-details">
+                    <table className="education-table">
+                      <tbody>
+                        <tr>
+                          <td>Degree</td>
+                          <td>{edu?.degree}</td>
+                        </tr>
+                        <tr>
+                          <td>Year</td>
+                          <td>{edu?.year}</td>
+                        </tr>
+                        <tr>
+                          <td>Institution</td>
+                          <td>{edu?.institution}</td>
+                        </tr>
+                        <tr>
+                          <td>Field / Stream</td>
+                          <td>{edu?.field}</td>
+                        </tr>
+                        <tr>
+                          <td>GPA / Percentage</td>
+                          <td>{edu?.gpa}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+        {resumeData?.skills?.length ? (
+          <div className="skills-summary">
+            <p className="summary-header">
+              <b>SKILLS</b>
+            </p>
+            <div className="skills-summary-list">
+              {resumeData?.skills?.map((skill, index) =>
+                skill !== "" ? (
+                  <span key={index} className="skill-summary-tag">
+                    {skill + (index+1 !== resumeData?.skills?.length ? ", " : "")}
+                  </span>
+                ) : (
+                  ""
+                )
+              )}
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+        {resumeData?.certifications?.length ? (
+          <div className="certifications-summary">
+            <p className="summary-header">
+              <b>CERTIFICATIONS</b>
+            </p>
+            <div className="certifications-summary-list">
+              {resumeData?.certifications?.map((certification, index) =>
+                certification !== "" ? (
+                  <span key={index} className="certification-summary-tag">
+                    {certification + (index+1 !== resumeData?.certifications?.length ? ", " : "")}
+                  </span>
+                ) : (
+                  ""
+                )
+              )}
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+        {resumeData?.languages?.length ? (
+          <div className="languages-summary">
+            <p className="summary-header">
+              <b>LANGUAGES</b>
+            </p>
+            <div className="languages-summary-list">
+              {resumeData?.languages?.map((language, index) =>
+                language !== "" ? (
+                  <span key={index} className="language-summary-tag">
+                    {language + (index+1 !== resumeData?.languages?.length ? ", " : "")}
+                  </span>
+                ) : (
+                  ""
+                )
+              )}
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+        
+        {resumeData?.additionalInfo?.length ? (
+          <div className="additionalInfo-summary">
+            <p className="summary-header">
+              <b>ADDITIONAL INFORMATION</b>
+            </p>
+            <div
+              className="ql-editor"
+              dangerouslySetInnerHTML={{
+                __html: resumeData?.additionalInfo,
+              }}
+            />
+          </div>
+        ) : (
+          ""
+        )}
+      </div>
+    </>
   );
 };
 
