@@ -99,7 +99,6 @@ export const DownloadPDF = () => {
         disabled={isLoading}
         className="download-btn"
         onClick={handleDownload}
-        style={{ marginRight: "10px", position: "absolute", right: "15px", top: "15px" }}
       >
         {isLoading ? "Generating..." : "Download as PDF"}
       </button>
