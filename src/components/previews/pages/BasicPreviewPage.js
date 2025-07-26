@@ -43,9 +43,9 @@ const BasicPreviewPage = (props) => {
       </div>
       <div id="resume" className="preview-container">
         <div className="personal-summary">
-          <h3>
+          <h2>
             {resumeData?.personalInfo?.name}
-          </h3>
+          </h2>
           <p>{resumeData?.personalInfo?.email}</p>
           <p>{resumeData?.personalInfo?.phone}</p>
           <p>{resumeData?.personalInfo?.address}</p>
@@ -54,9 +54,9 @@ const BasicPreviewPage = (props) => {
         </div>
         {resumeData?.professionalSummary?.length ? (
           <div className="professional-summary">
-            <h4 className="summary-header">
+            <h3 className="summary-header">
               PROFESSIONAL SUMMARY
-            </h4>
+            </h3>
             <div
               className="ql-editor"
               dangerouslySetInnerHTML={{
@@ -69,9 +69,9 @@ const BasicPreviewPage = (props) => {
         )}
         {resumeData?.workExperience?.length ? (
           <div className="work-summary">
-            <h4 className="summary-header">
+            <h3 className="summary-header">
               WORK EXPERIENCE
-            </h4>
+            </h3>
             <div>
               {resumeData?.workExperience?.map((exp, index) => (
                 <div key={exp.id} className="summary-details" style={{paddingBottom: "10px"}}>
@@ -97,9 +97,9 @@ const BasicPreviewPage = (props) => {
         )}
         {resumeData?.education?.length ? (
           <div className="educational-summary">
-            <h4 className="summary-header">
+            <h3 className="summary-header">
               EDUCATION
-            </h4>
+            </h3>
             <div>
               {resumeData?.education?.map((edu) => (
                 <div>
@@ -136,11 +136,11 @@ const BasicPreviewPage = (props) => {
         ) : (
           ""
         )}
-        {resumeData?.skills?.length ? (
+        {resumeData?.skills?.length > 0 && resumeData?.skills[0] !== "" ? (
           <div className="skills-summary">
-            <h4 className="summary-header">
+            <h3 className="summary-header">
               SKILLS
-            </h4>
+            </h3>
             <div className="skills-summary-list">
               {resumeData?.skills?.map((skill, index) =>
                 skill !== "" ? (
@@ -156,11 +156,11 @@ const BasicPreviewPage = (props) => {
         ) : (
           ""
         )}
-        {resumeData?.certifications?.length ? (
+        {resumeData?.certifications?.length > 0 && resumeData?.certifications[0] !== "" ? (
           <div className="certifications-summary">
-            <h4 className="summary-header">
+            <h3 className="summary-header">
               CERTIFICATIONS
-            </h4>
+            </h3>
             <div className="certifications-summary-list">
               {resumeData?.certifications?.map((certification, index) =>
                 certification !== "" ? (
@@ -176,11 +176,11 @@ const BasicPreviewPage = (props) => {
         ) : (
           ""
         )}
-        {resumeData?.languages?.length ? (
+        {resumeData?.languages?.length > 0 && resumeData?.languages[0] !== "" ? (
           <div className="languages-summary">
-            <h4 className="summary-header">
+            <h3 className="summary-header">
               LANGUAGES
-            </h4>
+            </h3>
             <div className="languages-summary-list">
               {resumeData?.languages?.map((language, index) =>
                 language !== "" ? (
@@ -197,11 +197,11 @@ const BasicPreviewPage = (props) => {
           ""
         )}
         
-        {resumeData?.additionalInfo?.length ? (
+        {resumeData?.additionalInfo?.length > 0 && resumeData?.additionalInfo[0] !== "" ? (
           <div className="additionalInfo-summary">
-            <h4 className="summary-header">
+            <h3 className="summary-header">
               ADDITIONAL INFORMATION
-            </h4>
+            </h3>
             <div
               className="ql-editor"
               dangerouslySetInnerHTML={{
