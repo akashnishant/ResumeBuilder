@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
 import "../../../styles/basicPreview.css";
 import { DownloadPDF } from "../../downloadFunctions/DownloadPDF";
 import { BackButton } from "../../icons/BackButton";
@@ -45,9 +43,9 @@ const BasicPreviewPage = (props) => {
       </div>
       <div id="resume" className="preview-container">
         <div className="personal-summary">
-          <p>
-            <b>{resumeData?.personalInfo?.name}</b>
-          </p>
+          <h3>
+            {resumeData?.personalInfo?.name}
+          </h3>
           <p>{resumeData?.personalInfo?.email}</p>
           <p>{resumeData?.personalInfo?.phone}</p>
           <p>{resumeData?.personalInfo?.address}</p>
@@ -56,9 +54,9 @@ const BasicPreviewPage = (props) => {
         </div>
         {resumeData?.professionalSummary?.length ? (
           <div className="professional-summary">
-            <p className="summary-header">
-              <b>PROFESSIONAL SUMMARY</b>
-            </p>
+            <h4 className="summary-header">
+              PROFESSIONAL SUMMARY
+            </h4>
             <div
               className="ql-editor"
               dangerouslySetInnerHTML={{
@@ -71,12 +69,12 @@ const BasicPreviewPage = (props) => {
         )}
         {resumeData?.workExperience?.length ? (
           <div className="work-summary">
-            <p className="summary-header">
-              <b>WORK EXPERIENCE</b>
-            </p>
+            <h4 className="summary-header">
+              WORK EXPERIENCE
+            </h4>
             <div>
               {resumeData?.workExperience?.map((exp, index) => (
-                <div key={exp.id} className="summary-details">
+                <div key={exp.id} className="summary-details" style={{paddingBottom: "10px"}}>
                   <p>
                     <b>
                       {index + 1}. {exp.position}
@@ -99,9 +97,9 @@ const BasicPreviewPage = (props) => {
         )}
         {resumeData?.education?.length ? (
           <div className="educational-summary">
-            <p className="summary-header">
-              <b>EDUCATION</b>
-            </p>
+            <h4 className="summary-header">
+              EDUCATION
+            </h4>
             <div>
               {resumeData?.education?.map((edu) => (
                 <div>
@@ -140,9 +138,9 @@ const BasicPreviewPage = (props) => {
         )}
         {resumeData?.skills?.length ? (
           <div className="skills-summary">
-            <p className="summary-header">
-              <b>SKILLS</b>
-            </p>
+            <h4 className="summary-header">
+              SKILLS
+            </h4>
             <div className="skills-summary-list">
               {resumeData?.skills?.map((skill, index) =>
                 skill !== "" ? (
@@ -160,9 +158,9 @@ const BasicPreviewPage = (props) => {
         )}
         {resumeData?.certifications?.length ? (
           <div className="certifications-summary">
-            <p className="summary-header">
-              <b>CERTIFICATIONS</b>
-            </p>
+            <h4 className="summary-header">
+              CERTIFICATIONS
+            </h4>
             <div className="certifications-summary-list">
               {resumeData?.certifications?.map((certification, index) =>
                 certification !== "" ? (
@@ -180,9 +178,9 @@ const BasicPreviewPage = (props) => {
         )}
         {resumeData?.languages?.length ? (
           <div className="languages-summary">
-            <p className="summary-header">
-              <b>LANGUAGES</b>
-            </p>
+            <h4 className="summary-header">
+              LANGUAGES
+            </h4>
             <div className="languages-summary-list">
               {resumeData?.languages?.map((language, index) =>
                 language !== "" ? (
@@ -201,9 +199,9 @@ const BasicPreviewPage = (props) => {
         
         {resumeData?.additionalInfo?.length ? (
           <div className="additionalInfo-summary">
-            <p className="summary-header">
-              <b>ADDITIONAL INFORMATION</b>
-            </p>
+            <h4 className="summary-header">
+              ADDITIONAL INFORMATION
+            </h4>
             <div
               className="ql-editor"
               dangerouslySetInnerHTML={{

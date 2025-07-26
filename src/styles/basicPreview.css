@@ -29,6 +29,7 @@
   }
   .summary-header {
     margin-bottom: 5px;
+    font-weight: 900;
   }
   .personal-summary {
     text-align: center;
@@ -113,4 +114,7 @@
       margin-bottom: 10px;
     }
   }
+   :last-child {
+    border-bottom: 0px;
+   }
 }
