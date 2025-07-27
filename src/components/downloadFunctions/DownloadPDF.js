@@ -104,6 +104,7 @@ export const DownloadPDF = (props) => {
         link.click();
         link.parentNode.removeChild(link);
         setIsLoading(false);
+        alert("File Downloaded")
       });
   }
   const overlayStyle = {
