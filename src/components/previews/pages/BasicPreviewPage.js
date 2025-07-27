@@ -10,7 +10,7 @@ const ResumeHTML = ({ resumeData }) => {
   return (
     <div id="resume" className="preview-container">
       <div className="personal-summary">
-        <h2 style={{marginBottom: "-5px"}}>{resumeData?.personalInfo?.name}</h2>
+        <h2 style={{marginBottom: "-2px"}}>{resumeData?.personalInfo?.name}</h2>
         <p>{resumeData?.personalInfo?.email}</p>
         <p>{resumeData?.personalInfo?.phone}</p>
         <p>{resumeData?.personalInfo?.address}</p>
@@ -353,7 +353,7 @@ const BasicPreviewPage = (props) => {
       </div>
       <div id="resume" className="preview-container">
         <div className="personal-summary">
-          <h2 style={{marginBottom: "-5px"}}>{resumeData?.personalInfo?.name}</h2>
+          <h2 style={{marginBottom: "-2px"}}>{resumeData?.personalInfo?.name}</h2>
           <p>{resumeData?.personalInfo?.email}</p>
           <p>{resumeData?.personalInfo?.phone}</p>
           <p>{resumeData?.personalInfo?.address}</p>
