@@ -85,7 +85,7 @@ export const DownloadPDF = (props) => {
     const htmlWithCss = html;
 
     const API_LOCAL = 'http://localhost:3001';
-    const API = 'https://resumebuilder-api-s61i.onrender.com';
+    const API = 'https://resumebuilder-api-production.up.railway.app';
 
     await fetch(`${API}/download-pdf`, {
       method: 'POST',
@@ -104,6 +104,7 @@ export const DownloadPDF = (props) => {
         link.click();
         link.parentNode.removeChild(link);
         setIsLoading(false);
+        alert("File Downloaded")
       });
   }
   const overlayStyle = {
