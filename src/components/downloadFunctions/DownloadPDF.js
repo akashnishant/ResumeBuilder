@@ -85,7 +85,7 @@ export const DownloadPDF = (props) => {
     const htmlWithCss = html;
 
     const API_LOCAL = 'http://localhost:3001';
-    const API = 'https://resumebuilder-api-t7co.onrender.com';
+    const API = 'https://resumebuilder-api-s61i.onrender.com';
 
     await fetch(`${API}/download-pdf`, {
       method: 'POST',
