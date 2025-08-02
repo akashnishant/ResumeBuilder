@@ -8,7 +8,8 @@ const LandingPage = () => {
   const handleCreateResume = (resumeData) => {
     // Store form data temporarily and redirect to register
     localStorage.setItem('tempResumeData', JSON.stringify(resumeData));
-    navigate('/resumeEditor');
+    // navigate('/resumeEditor');
+    navigate('/basicPreview');
   };
 
   return (
@@ -34,7 +35,7 @@ const LandingPage = () => {
             <div className="feature-card">
               <i className="fas fa-palette"></i>
               <h3>Professional Templates</h3>
-              <p>Choose from 10 professionally designed templates</p>
+              <p>Choose from professionally designed templates</p>
             </div>
             <div className="feature-card">
               <i className="fas fa-download"></i>
