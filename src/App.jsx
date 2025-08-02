@@ -29,7 +29,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/templates" element={<Templates />} /> */}
-        <Route path="/resumeEditor" element={<ResumeEditor />} />
+        {/* <Route path="/resumeEditor" element={<ResumeEditor />} /> */}
         <Route path="/basicPreview" element={<BasicPreview />} />
         {/* Catch-all route redirects any unknown path to home */}
         <Route path="*" element={<Navigate to="/" replace />} />

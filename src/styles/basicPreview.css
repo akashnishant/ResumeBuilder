@@ -58,30 +58,30 @@
       margin-bottom: 10px;
     }
     .education-table {
-        width: 100%;
-        border-collapse: collapse;
-        font-size: 14px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        margin-top: 10px;
-      }
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      margin-top: 10px;
+    }
 
-      .education-table td {
-        padding: 2px 12px;
-        vertical-align: top;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      }
+    .education-table td {
+      padding: 2px 12px;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
 
-      .education-table td:first-child {
-        font-weight: bold;
-        width: 30%;
-        color: #333;
-        border-right: 1px solid rgba(0, 0, 0, 0.1);
-      }
+    .education-table td:first-child {
+      font-weight: bold;
+      width: 30%;
+      color: #333;
+      border-right: 1px solid rgba(0, 0, 0, 0.1);
+    }
 
-      .education-table td:last-child {
-        width: 70%;
-        color: #555;
-      }
+    .education-table td:last-child {
+      width: 70%;
+      color: #555;
+    }
   }
 
   .skills-summary {
@@ -91,7 +91,7 @@
       margin-bottom: 10px;
     }
   }
-  
+
   .certifications-summary {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     margin-bottom: 15px;
@@ -99,7 +99,7 @@
       margin-bottom: 10px;
     }
   }
-  
+
   .languages-summary {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     margin-bottom: 15px;
@@ -107,14 +107,59 @@
       margin-bottom: 10px;
     }
   }
-  
+
   .additionalInfo-summary {
     margin-bottom: 15px;
     .additionalInfo-summary-list {
       margin-bottom: 10px;
     }
   }
-   :last-child {
+  :last-child {
     border-bottom: 0px;
-   }
+  }
+}
+
+.lclassico {
+  .personal-summary {
+    text-align: left;
+  }
+}
+.rclassico {
+  .personal-summary {
+    text-align: right;
+  }
+}
+.modern {
+  display: flex;
+  justify-content: center;
+  .left-container {
+    border-right: 1px solid lightblue;
+    margin-right: 10px;
+    padding-right: 10px;
+    .personal-summary {
+      text-align: left;
+      .square-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* align to left */
+        padding: 0px;
+        box-sizing: border-box;
+      }
+
+      .initials-square {
+        width: 50%;
+        aspect-ratio: 1 / 1; /* ensures it's a square */
+        background-color: black;
+        color: white;
+        font-size: 55px; /* responsive large font */
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        box-sizing: border-box;
+      }
+    }
+  }
 }
