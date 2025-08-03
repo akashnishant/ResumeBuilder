@@ -3,7 +3,6 @@ import { FiArrowLeft } from 'react-icons/fi'; // or AiOutlineArrowLeft
 export const BackButton = ({ onClick }) => (
   <button onClick={onClick} style={backButtonStyle}>
     <FiArrowLeft size={20} style={{ marginRight: '8px' }} />
-    Back
   </button>
 );
 
