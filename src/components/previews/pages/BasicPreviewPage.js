@@ -192,12 +192,19 @@ const BasicPreviewPage = (props) => {
         .modern {
           display: flex;
           justify-content: center;
+          .summary-header {
+            border-bottom: 1px solid black;
+            width: fit-content;
+          }
           .left-container {
             border-right: 1px solid lightblue;
             margin-right: 10px;
             padding-right: 10px;
             .personal-summary {
               text-align: left;
+              p {
+                line-height: 1.5;
+              }
               .square-container {
                 width: 100%;
                 display: flex;
@@ -230,6 +237,10 @@ const BasicPreviewPage = (props) => {
           html, body {
             margin: 0;
             padding: 0;
+          }
+          body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
           }
           h1, h2 {
             page-break-after: avoid;
