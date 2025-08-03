@@ -55,6 +55,9 @@ const BasicPreviewPage = (props) => {
     <html>
       <head>
         <style>
+        * {
+          box-sizing: border-box;
+        }
         .preview-page-buttons {
           display: flex;
           justify-content: space-between;
@@ -218,6 +221,24 @@ const BasicPreviewPage = (props) => {
                 box-sizing: border-box;
               }
             }
+          }
+        }
+        @media print {
+          html, body {
+            margin: 0;
+            padding: 0;
+          }
+
+          .page-break {
+            page-break-before: always;
+          }
+
+          .no-break {
+            page-break-inside: avoid;
+          }
+
+          .preview-container {
+            padding: 0
           }
         }
         </style>
