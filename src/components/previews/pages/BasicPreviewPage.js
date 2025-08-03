@@ -268,12 +268,13 @@ const BasicPreviewPage = (props) => {
 
   return (
     <>
+      <div className="main-container">
       <div className="preview-page-buttons">
         <BackButton onClick={() => navigate(-1)} />
         {/* Download Button - Top Right */}
         <DownloadPDF html={htmlWithCss} name={resumeData?.personalInfo?.name} />
       </div>
-      <div>
+      <div style={{marginBottom:"20px"}}>
         <ButtonSelector
           selected={selectedTemplate}
           setSelected={setSelectedTemplate}
@@ -287,6 +288,7 @@ const BasicPreviewPage = (props) => {
       >
         {selectedTemplate !== "Modern" && <ClassicPreviewPage />}
         {selectedTemplate === "Modern" && <ModernPreviewPage />}
+      </div>
       </div>
     </>
   );
