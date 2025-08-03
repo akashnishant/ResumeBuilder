@@ -44,6 +44,19 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* For Firefox */
+  background-clip: text;
+  color: transparent;
+
+  font-size: 36px;
+  font-weight: bold;
 }
 
 .nav-logo i {
@@ -109,6 +122,8 @@ body {
 .hero-content p {
   font-size: 1.2rem;
   opacity: 0.9;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .form-section {

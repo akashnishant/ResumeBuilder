@@ -17,8 +17,8 @@ const Navigation = () => {
     <nav className="navbar">
       <div className="nav-container">
         <Link to="/" className="nav-logo">
-          <i className="fas fa-file-alt"></i>
-          ResuMate
+          {/* <i className="fas fa-file-alt"></i> */}
+          ResuMate Pro
         </Link>
         
         <div className="nav-menu">
