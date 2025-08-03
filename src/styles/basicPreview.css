@@ -132,12 +132,19 @@
 .modern {
   display: flex;
   justify-content: center;
+  .summary-header {
+    border-bottom: 1px solid black;
+    width: fit-content;
+  }
   .left-container {
     border-right: 1px solid lightblue;
     margin-right: 10px;
     padding-right: 10px;
     .personal-summary {
       text-align: left;
+      p {
+        line-height: 1.5;
+      }
       .square-container {
         width: 100%;
         display: flex;
