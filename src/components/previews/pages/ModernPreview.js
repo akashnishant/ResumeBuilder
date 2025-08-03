@@ -75,7 +75,7 @@ const ModernPreviewPage = (props) => {
                     </b>
                   </p>
                   <p className="gray">{exp.duration}</p>
-                  <p className="mb-2">{exp.company}</p>
+                  <p className="mb-2" style={{fontWeight:"700"}}>{exp.company}</p>
                   <div
                     className="ql-editor"
                     dangerouslySetInnerHTML={{
