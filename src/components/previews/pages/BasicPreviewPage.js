@@ -224,19 +224,16 @@ const BasicPreviewPage = (props) => {
           }
         }
         @media print {
+        * {
+            box-sizing: border-box;
+          }
           html, body {
             margin: 0;
             padding: 0;
           }
-
-          .page-break {
-            page-break-before: always;
+          h1, h2 {
+            page-break-after: avoid;
           }
-
-          .no-break {
-            page-break-inside: avoid;
-          }
-
           .preview-container {
             padding: 0
           }
@@ -263,7 +260,7 @@ const BasicPreviewPage = (props) => {
       <div className="preview-page-buttons">
         <BackButton onClick={() => navigate(-1)} />
         {/* Download Button - Top Right */}
-        <DownloadPDF html={htmlWithCss} />
+        <DownloadPDF html={htmlWithCss} name={resumeData?.personalInfo?.name} />
       </div>
       <div>
         <ButtonSelector
