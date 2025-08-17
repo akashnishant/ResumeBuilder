@@ -43,6 +43,69 @@ const ModernPreviewPage = (props) => {
             <p>{resumeData?.personalInfo?.linkedin}</p>
             <p>{resumeData?.personalInfo?.website}</p>
             </div>
+
+            {resumeData?.skills?.length > 0 && resumeData?.skills[0] !== "" ? (
+              <div className="skills-summary">
+                <h3 className="summary-header">SKILLS</h3>
+                <div className="skills-summary-list">
+                  {resumeData?.skills?.map((skill, index) =>
+                    skill !== "" ? (
+                      <span key={index} className="skill-summary-tag">
+                        {skill +
+                          (index + 1 !== resumeData?.skills?.length ? ", " : "")}
+                      </span>
+                    ) : (
+                      ""
+                    )
+                  )}
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+
+            {resumeData?.certifications?.length > 0 &&
+            resumeData?.certifications[0] !== "" ? (
+              <div className="certifications-summary">
+                <h3 className="summary-header">CERTIFICATIONS</h3>
+                <div className="certifications-summary-list">
+                  {resumeData?.certifications?.map((certification, index) =>
+                    certification !== "" ? (
+                      <span key={index} className="certification-summary-tag">
+                        {certification +
+                          (index + 1 !== resumeData?.certifications?.length
+                            ? ", "
+                            : "")}
+                      </span>
+                    ) : (
+                      ""
+                    )
+                  )}
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+            {resumeData?.languages?.length > 0 &&
+            resumeData?.languages[0] !== "" ? (
+              <div className="languages-summary">
+                <h3 className="summary-header">LANGUAGES</h3>
+                <div className="languages-summary-list">
+                  {resumeData?.languages?.map((language, index) =>
+                    language !== "" ? (
+                      <span key={index} className="language-summary-tag">
+                        {language +
+                          (index + 1 !== resumeData?.languages?.length ? ", " : "")}
+                      </span>
+                    ) : (
+                      ""
+                    )
+                  )}
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
         </div>
         <div className="right-container">
         {resumeData?.professionalSummary?.length ? (
@@ -124,67 +187,6 @@ const ModernPreviewPage = (props) => {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        ) : (
-          ""
-        )}
-        {resumeData?.skills?.length > 0 && resumeData?.skills[0] !== "" ? (
-          <div className="skills-summary">
-            <h3 className="summary-header">SKILLS</h3>
-            <div className="skills-summary-list">
-              {resumeData?.skills?.map((skill, index) =>
-                skill !== "" ? (
-                  <span key={index} className="skill-summary-tag">
-                    {skill +
-                      (index + 1 !== resumeData?.skills?.length ? ", " : "")}
-                  </span>
-                ) : (
-                  ""
-                )
-              )}
-            </div>
-          </div>
-        ) : (
-          ""
-        )}
-        {resumeData?.certifications?.length > 0 &&
-        resumeData?.certifications[0] !== "" ? (
-          <div className="certifications-summary">
-            <h3 className="summary-header">CERTIFICATIONS</h3>
-            <div className="certifications-summary-list">
-              {resumeData?.certifications?.map((certification, index) =>
-                certification !== "" ? (
-                  <span key={index} className="certification-summary-tag">
-                    {certification +
-                      (index + 1 !== resumeData?.certifications?.length
-                        ? ", "
-                        : "")}
-                  </span>
-                ) : (
-                  ""
-                )
-              )}
-            </div>
-          </div>
-        ) : (
-          ""
-        )}
-        {resumeData?.languages?.length > 0 &&
-        resumeData?.languages[0] !== "" ? (
-          <div className="languages-summary">
-            <h3 className="summary-header">LANGUAGES</h3>
-            <div className="languages-summary-list">
-              {resumeData?.languages?.map((language, index) =>
-                language !== "" ? (
-                  <span key={index} className="language-summary-tag">
-                    {language +
-                      (index + 1 !== resumeData?.languages?.length ? ", " : "")}
-                  </span>
-                ) : (
-                  ""
-                )
-              )}
             </div>
           </div>
         ) : (

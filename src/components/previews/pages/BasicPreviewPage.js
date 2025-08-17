@@ -17,8 +17,8 @@ const ResumeHTML = ({ resumeData }) => {
         .replace(" ", "")
         .toLowerCase()}`}
     >
-      {resumeData?.selectedTemplate !== "Modern" && <ClassicPreviewPage />}
-      {resumeData?.selectedTemplate === "Modern" && <ModernPreviewPage />}
+      {(resumeData?.selectedTemplate === "Classic" || resumeData?.selectedTemplate === "L Classico" || resumeData?.selectedTemplate === "R Classico") && <ClassicPreviewPage />}
+      {(resumeData?.selectedTemplate === "Modern" || resumeData?.selectedTemplate === "Modern Black") && <ModernPreviewPage />}
     </div>
   );
 };
@@ -286,8 +286,8 @@ const BasicPreviewPage = (props) => {
           .replace(" ", "")
           .toLowerCase()}`}
       >
-        {selectedTemplate !== "Modern" && <ClassicPreviewPage />}
-        {selectedTemplate === "Modern" && <ModernPreviewPage />}
+        {(selectedTemplate === "Classic" || selectedTemplate === "L Classico" || selectedTemplate === "R Classico") && <ClassicPreviewPage />}
+        {(selectedTemplate === "Modern" || selectedTemplate === "Modern Black") && <ModernPreviewPage />}
       </div>
       </div>
     </>
